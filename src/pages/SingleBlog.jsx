@@ -1,12 +1,12 @@
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function SingleBlog() {
 
   const {id} = useParams() 
-
+  const navigate = useNavigate()
   const [blog, setBlog] = useState({})
   
   console.log(id)
@@ -22,7 +22,13 @@ function SingleBlog() {
 
   const deleteBlog = async () =>{
     const response = await axios.delete("http://localhost:3000/blog/" + id)
-    console.log("delete blog execute vayo hai...")
+    console.log(response.status)
+    if(response.status === 200) {
+      alert("Delete successfully...!!")
+      navigate("/")
+    } else{
+      alert("Something went wrong....!!")
+    }
   }
 
   const editBlog = () =>{
