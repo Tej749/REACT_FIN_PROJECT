@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-function Card({ blog }) {
+ function Card({ blog }) {
   console.log(blog);
-
+ 
   return (
     <> 
       <Link to={`/blog/${blog._id}`}>
@@ -10,7 +10,7 @@ function Card({ blog }) {
           <div className="relative top-3">
             <img
               className="w-full h-64 object-cover"
-              src={`http://localhost:3000/` + blog.image}
+              src={blog.image}
               alt="Image"
             />
             <div className="absolute top-0 right-0">
