@@ -6,7 +6,7 @@ function Navbar() {
     <>
       <nav className="navbar">
         <div className="logo">
-          <Link to="/">MyWebsite</Link>
+          <Link to="/">TEZN</Link>
         </div>
         <ul className="nav-links">
           <li>
