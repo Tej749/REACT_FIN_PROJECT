@@ -9,7 +9,7 @@ function SingleBlog() {
   const [blog, setBlog] = useState({});
   
   const fetchSingleBlog = async () => {
-    const response = await axios.get("https://express-project-1fmh.onrender.com/blog" + id);
+    const response = await axios.get("https://express-project-1fmh.onrender.com/blog/" + id);
     setBlog(response.data.data); // response hold data in object form: key & value pair
     //console.log(response.data.data)
   };
@@ -19,7 +19,7 @@ function SingleBlog() {
   }, []);
 
   const deleteBlog = async () => {
-    const response = await axios.delete("https://express-project-1fmh.onrender.com/blog" + id);
+    const response = await axios.delete("https://express-project-1fmh.onrender.com/blog/" + id);
     console.log(response.status);
     if (response.status === 200) {
       alert("Delete successfully...!!");

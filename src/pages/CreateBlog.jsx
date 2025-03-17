@@ -27,7 +27,7 @@ function CreateBlog() {
     setData({
       ...data,
       [name]: name === "image" ? e.target.files[0] : value,
-    }); 
+    });
   };
 
   console.log(data);
@@ -35,16 +35,20 @@ function CreateBlog() {
 
   const newCreateBLog = async (e) => {
     e.preventDefault();
-    const response = await axios.post("https://express-project-1fmh.onrender.com/blog", data, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-     });
+    const response = await axios.post(
+      "https://express-project-1fmh.onrender.com/blog",
+      data,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
     if (response.status === 200) {
       navigate("/");
     } else {
       alert("Something went wrong...");
-    } 
+    }
 
     console.log("form submitted");
   };

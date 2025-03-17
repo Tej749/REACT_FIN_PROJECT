@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 function EditBlog() {
   const { id } = useParams();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [data, setData] = useState({
     game: "",
@@ -26,41 +26,41 @@ function EditBlog() {
   const editBlog = async (e) => {
     e.preventDefault();
     const response = await axios.patch(
-      "https://express-project-1fmh.onrender.com/blog" + id,
+      "https://express-project-1fmh.onrender.com/blog/" + id,
       data,
       {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       }
-    ); 
+    );
     if (response.status === 200) {
-      navigate("/blog/" + id)
-    } else{
-      alert("Something went wrong...")
+      navigate("/blog/" + id);
+    } else {
+      alert("Something went wrong...");
     }
-
   };
 
   const fetchSingleBlog = async () => {
-    const response = await axios.get("https://express-project-1fmh.onrender.com/blog" + id);
+    const response = await axios.get(
+      "https://express-project-1fmh.onrender.com/blog/" + id
+    );
     if (response.status === 200) {
       setData({
-        game : response.data.data.game,
-        player : response.data.data.player,
-        add : response.data.data.add
-      })
-    } else{
-      alert("Something went wrong...")
+        game: response.data.data.game,
+        player: response.data.data.player,
+        add: response.data.data.add,
+      });
+    } else {
+      alert("Something went wrong...");
     }
-
   };
 
   useEffect(() => {
     fetchSingleBlog();
   }, []);
 
-  console.log(data)
+  console.log(data);
 
   return (
     <>
@@ -80,7 +80,8 @@ function EditBlog() {
                 name="game"
                 className="mt- block w-1/2 rounded-md border border-slate-300 bg-white px-3 py-4 placeholder-slate-400 shadow-sm placeholder:font-semibold placeholder:text-gray-500 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 sm:text-sm"
                 placeholder="Game*"
-                onChange={handleChange} value={data.game}
+                onChange={handleChange}
+                value={data.game}
               />
 
               <input
@@ -88,7 +89,8 @@ function EditBlog() {
                 name="player"
                 className="mt-1 block w-1/2 rounded-md border border-slate-300 bg-white px-3 py-4 placeholder-slate-400 shadow-sm placeholder:font-semibold placeholder:text-gray-500 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 sm:text-sm"
                 placeholder="Player *"
-                onChange={handleChange} value={data.player}
+                onChange={handleChange}
+                value={data.player}
               />
             </div>
             <div className="flex gap-4 mt-5">
@@ -97,7 +99,8 @@ function EditBlog() {
                 name="add"
                 className="mt-1 block w-1/2 rounded-md border border-slate-300 bg-white px-3 py-4 placeholder-slate-400 shadow-sm placeholder:font-semibold placeholder:text-gray-500 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 sm:text-sm"
                 placeholder="Address *"
-                onChange={handleChange} value={data.add}
+                onChange={handleChange}
+                value={data.add}
               />
               <input
                 type="file"
