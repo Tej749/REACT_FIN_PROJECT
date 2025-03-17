@@ -7,6 +7,7 @@ function SingleBlog() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [blog, setBlog] = useState({});
+  
   const fetchSingleBlog = async () => {
     const response = await axios.get("http://localhost:3000/blog/" + id);
     setBlog(response.data.data); // response hold data in object form: key & value pair
@@ -70,26 +71,9 @@ function SingleBlog() {
               </h2>
 
               <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
-                Webpage design using express on backend & ReactJS on frontend
-                (UI) and MongoDB (No SQL Database)
+                Welcome to Our Website.. please visit us for the best service... Tezn49@Info Tech Nepalgunj
               </p>
-
-              <div>
-                <h2>Player Name </h2>
-                <span className="font-bold text-gray-700 dark:text-gray-300">
-                  {blog.player}
-                </span>
-                <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  sed ante justo. Integer euismod libero id mauris malesuada
-                  tincidunt. Vivamus commodo nulla ut lorem rhoncus aliquet.
-                  Duis dapibus augue vel ipsum pretium, et venenatis sem
-                  blandit. Quisque ut erat vitae nisi ultrices placerat non eget
-                  velit. Integer ornare mi sed ipsum lacinia, non sagittis
-                  mauris blandit. Morbi fermentum libero vel nisl suscipit, nec
-                  tincidunt mi consectetur.
-                </p>
-              </div>
+              
             </div>
           </div>
         </div>

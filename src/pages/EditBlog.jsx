@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
@@ -42,6 +42,26 @@ function EditBlog() {
 
   };
 
+  const fetchSingleBlog = async () => {
+    const response = await axios.get("http://localhost:3000/blog/" + id);
+    if (response.status === 200) {
+      setData({
+        game : response.data.data.game,
+        player : response.data.data.player,
+        add : response.data.data.add
+      })
+    } else{
+      alert("Something went wrong...")
+    }
+
+  };
+
+  useEffect(() => {
+    fetchSingleBlog();
+  }, []);
+
+  console.log(data)
+
   return (
     <>
       <Navbar />
@@ -60,7 +80,7 @@ function EditBlog() {
                 name="game"
                 className="mt- block w-1/2 rounded-md border border-slate-300 bg-white px-3 py-4 placeholder-slate-400 shadow-sm placeholder:font-semibold placeholder:text-gray-500 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 sm:text-sm"
                 placeholder="Game*"
-                onChange={handleChange}
+                onChange={handleChange} value={data.game}
               />
 
               <input
@@ -68,7 +88,7 @@ function EditBlog() {
                 name="player"
                 className="mt-1 block w-1/2 rounded-md border border-slate-300 bg-white px-3 py-4 placeholder-slate-400 shadow-sm placeholder:font-semibold placeholder:text-gray-500 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 sm:text-sm"
                 placeholder="Player *"
-                onChange={handleChange}
+                onChange={handleChange} value={data.player}
               />
             </div>
             <div className="flex gap-4 mt-5">
@@ -77,7 +97,7 @@ function EditBlog() {
                 name="add"
                 className="mt-1 block w-1/2 rounded-md border border-slate-300 bg-white px-3 py-4 placeholder-slate-400 shadow-sm placeholder:font-semibold placeholder:text-gray-500 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 sm:text-sm"
                 placeholder="Address *"
-                onChange={handleChange}
+                onChange={handleChange} value={data.add}
               />
               <input
                 type="file"

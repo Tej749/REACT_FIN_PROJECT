@@ -21,13 +21,13 @@ import { Link } from "react-router-dom";
               </div>
             </div>
           </div>
-          <div className="p-4">
+          <div className="p-4 min-w-5">
             <h3 className="text-xl font-semibold mb-2">{blog.game}</h3>
             <h4 className="text-xl font-semibold mb-2">{blog.player}</h4>
 
             <p className="text-gray-700 text-base">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-              bibendum auctor felis, vel consequat odio ullamcorper eu.
+              This is the page to boost your skill, so everyone please polished
+              your skill to give shining to grow your best performance :: TEZN49
             </p>
             <h5 className="text-red-700 font-bold">{blog.add}</h5>
           </div>
