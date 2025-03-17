@@ -26,7 +26,7 @@ function EditBlog() {
   const editBlog = async (e) => {
     e.preventDefault();
     const response = await axios.patch(
-      "http://localhost:3000/blog/" + id,
+      "https://express-project-1fmh.onrender.com/blog" + id,
       data,
       {
         headers: {
@@ -43,7 +43,7 @@ function EditBlog() {
   };
 
   const fetchSingleBlog = async () => {
-    const response = await axios.get("http://localhost:3000/blog/" + id);
+    const response = await axios.get("https://express-project-1fmh.onrender.com/blog" + id);
     if (response.status === 200) {
       setData({
         game : response.data.data.game,
