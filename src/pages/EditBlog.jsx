@@ -45,6 +45,7 @@ function EditBlog() {
     const response = await axios.get(
       "https://express-project-1fmh.onrender.com/blog/" + id
     );
+
     if (response.status === 200) {
       setData({
         game: response.data.data.game,

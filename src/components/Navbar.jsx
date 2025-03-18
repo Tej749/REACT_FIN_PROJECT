@@ -10,7 +10,7 @@ function Navbar() {
         </div>
         <ul className="nav-links">
           <li>
-            <a href="/">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
             <a href="#about">About</a>
@@ -19,7 +19,7 @@ function Navbar() {
             <a href="#services">Services</a>
           </li>
           <li>
-            <a href="/create">Create Blog</a>
+            <Link to="/create">Create Blog</Link>
           </li>
         </ul>
         <div className="hamburger">
