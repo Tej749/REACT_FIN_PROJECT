@@ -108,6 +108,7 @@ function EditBlog() {
                 name="image"
                 className="mt-1 block w-1/2 rounded-md border border-slate-300 bg-white px-3 py-4 placeholder-slate-400 shadow-sm placeholder:font-semibold placeholder:text-gray-500 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 sm:text-sm"
                 onChange={handleChange}
+                value={data.image}
               />
             </div>
 
